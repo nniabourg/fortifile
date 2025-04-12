@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
@@ -8,11 +8,6 @@ import Login from "./pages/Login";
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  useEffect(() => {
-    const loggedIn = localStorage.getItem("isAuthenticated");
-    if (loggedIn) setIsAuthenticated(true);
-  }, []);
-
   return (
     <Router>
       <NavBar setIsAuthenticated={setIsAuthenticated} />
@@ -20,7 +15,9 @@ function App() {
         <Route
           path="/"
           element={
-            isAuthenticated ? <Navigate to="/home" /> : <Login setIsAuthenticated={setIsAuthenticated} />
+            isAuthenticated 
+              ? <Navigate to="/home" /> 
+              : <Login setIsAuthenticated={setIsAuthenticated} />
           }
         />
         <Route
