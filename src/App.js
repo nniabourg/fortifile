@@ -4,6 +4,8 @@ import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Login from "./pages/Login";
+import Upload from "./components/Upload";
+
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -28,6 +30,11 @@ function App() {
           path="/about"
           element={isAuthenticated ? <About /> : <Navigate to="/" />}
         />
+        <Route
+  path="/upload"
+  element={isAuthenticated ? <Upload /> : <Navigate to="/" />}
+/>
+
       </Routes>
     </Router>
   );
