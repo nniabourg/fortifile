@@ -22,6 +22,10 @@ function NavBar({ setIsAuthenticated }) {
                 <Link className="nav-link" to="/home">Home</Link>
               </li>
               <li className="nav-item">
+  <Link className="nav-link" to="/upload">Upload</Link>
+</li>
+
+              <li className="nav-item">
                 <Link className="nav-link" to="/about">About</Link>
               </li>
               <li className="nav-item">
