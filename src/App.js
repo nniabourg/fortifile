@@ -5,7 +5,8 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Login from "./pages/Login";
 import Upload from "./components/Upload";
-
+import Decrypt from "./components/Decrypt";
+import './main.css';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -31,10 +32,13 @@ function App() {
           element={isAuthenticated ? <About /> : <Navigate to="/" />}
         />
         <Route
-  path="/upload"
-  element={isAuthenticated ? <Upload /> : <Navigate to="/" />}
-/>
-
+          path="/upload"
+          element={isAuthenticated ? <Upload /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/decrypt"
+          element={isAuthenticated ? <Decrypt /> : <Navigate to="/" />}
+        />
       </Routes>
     </Router>
   );

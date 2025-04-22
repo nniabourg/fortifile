@@ -1,40 +1,30 @@
 import React from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import "../main.css";
 
 function NavBar({ setIsAuthenticated }) {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleLogout = () => {
+  const handleLogout = (e) => {
+    e.preventDefault();
     localStorage.removeItem("isAuthenticated");
     setIsAuthenticated(false);
     navigate("/");
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div className="container-fluid">
-        <span className="navbar-brand">Fotifile</span>
-        {location.pathname !== "/" && (
-          <div className="collapse navbar-collapse">
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to="/home">Home</Link>
-              </li>
-              <li className="nav-item">
-  <Link className="nav-link" to="/upload">Upload</Link>
-</li>
-
-              <li className="nav-item">
-                <Link className="nav-link" to="/about">About</Link>
-              </li>
-              <li className="nav-item">
-                <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
-              </li>
-            </ul>
-          </div>
-        )}
-      </div>
+    <nav className="nav-container">
+      <div className="logo">FortiFile</div>
+      {location.pathname !== "/" && (
+        <ul className="nav-links">
+          <li><Link to="/home">Home</Link></li>
+          <li><Link to="/upload">Encrypt</Link></li>
+          <li><Link to="/decrypt">Decrypt</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><a href="/" onClick={handleLogout}>Logout</a></li>
+        </ul>
+      )}
     </nav>
   );
 }

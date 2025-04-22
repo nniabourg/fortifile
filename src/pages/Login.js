@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import '../main.css';
 
 function Login({ setIsAuthenticated }) {
   const [username, setUsername] = useState("");
@@ -19,33 +20,38 @@ function Login({ setIsAuthenticated }) {
   };
 
   return (
-    <div className="container mt-5">
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <div className="mb-3">
-          <label className="form-label">Username</label>
-          <input
-            type="text"
-            className="form-control"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
+    <section id="contact"> {/* Reusing contact styling for layout */}
+      <div className="about-box" style={{ paddingTop: "200px" }}>
+        <h1><span>Login</span></h1>
+        <form onSubmit={handleLogin}>
+          <div className="input-box" style={{ width: "50%" }}>
+            <span>Username</span>
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </div>
+          <div className="input-box" style={{ width: "50%", paddingTop: "30px" }}>
+            <span>Password</span>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <div className="btn-box" style={{ paddingTop: "40px", paddingRight: "270px"        }}>
+            <button type="submit" className="btn">Login</button>
+
         </div>
-        <div className="mb-3">
-          <label className="form-label">Password</label>
-          <input
-            type="password"
-            className="form-control"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">Login</button>
-      </form>
-    </div>
+          
+        </form>
+      </div>
+    </section>
   );
 }
 
 export default Login;
+ 
