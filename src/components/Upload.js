@@ -24,7 +24,7 @@ function Upload() {
 
       const encrypted = CryptoJS.AES.encrypt(wordArray, key).toString();
 
-      const response = await fetch("http://localhost:5000/upload", {
+      const response = await fetch("https://fortifile-26qg.onrender.com/upload", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
